@@ -6,6 +6,7 @@ namespace L10 {
         //y: number;
     //}
 
+    //test
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
