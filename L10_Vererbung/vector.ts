@@ -1,4 +1,4 @@
-namespace L10 {
+namespace L_10 {
     export class Vector {
         x: number;
         y: number;
@@ -30,7 +30,8 @@ namespace L10 {
             this.scale(length);
         }
 
-        copy(): Vector {
+        copy(): Vector { // vector repliziert sich selbst, Kopie -> neuer Vektor gleiche Werte 
+            // neue Positionsobjekte bewegen sich unabh. voneinander
             let vector: Vector = new Vector(this.x, this.y);
             return vector;
         }

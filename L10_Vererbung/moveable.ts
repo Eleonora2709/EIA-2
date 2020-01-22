@@ -1,26 +1,36 @@
-namespace L10 {
-    export class Moveable extends Object {
+namespace L_10 {
+    export abstract class Moveable {
+        position: Vector;
         velocity: Vector;
 
-        move(): void {
-            this.position.add(this.velocity);
-            if (this.position.x >= canvas.width + 60) {
-                this.position.x = - 50;
-            }
-            if (this.position.x <= - 60) {
-                this.position.x = canvas.width + 50;
-            }
-            if (this.position.y >= canvas.height + 60) {
-                this.position.y = - 50;
-            }
-            if (this.position.y <= - 60) {
-                this.position.y = canvas.height + 50;
-            }
+        constructor( _position?: Vector) {
+        //
         }
 
-        update(): void {
-            this.move();
-            this.draw();
+        move(_timeslice: number): void {
+
+            let offset: Vector = this.velocity.copy();
+            //offset.scale(_timeslice);
+            this.position.add(offset);
+
+            if (this.position.x < -50)
+            this.position.x += crc2.canvas.width +50;
+
+            if (this.position.y < -50)
+            this.position.y += crc2.canvas.height +50;
+
+            if (this.position.x > crc2.canvas.width)
+            this.position.x -= crc2.canvas.width;
+    
+            if (this.position.y > crc2.canvas.height)
+            this.position.y -= crc2.canvas.height;        
         }
+
+       // draw(): void {
+
+        // Kommentar weil TS sonst motzt
+   // }
+
     }
+
 }

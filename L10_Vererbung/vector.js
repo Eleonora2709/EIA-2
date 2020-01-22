@@ -1,5 +1,5 @@
-var L10;
-(function (L10) {
+var L_10;
+(function (L_10) {
     class Vector {
         constructor(_x, _y) {
             this.set(_x, _y);
@@ -23,10 +23,11 @@ var L10;
             this.scale(length);
         }
         copy() {
+            // neue Positionsobjekte bewegen sich unabh. voneinander
             let vector = new Vector(this.x, this.y);
             return vector;
         }
     }
-    L10.Vector = Vector;
-})(L10 || (L10 = {}));
+    L_10.Vector = Vector;
+})(L_10 || (L_10 = {}));
 //# sourceMappingURL=vector.js.map
