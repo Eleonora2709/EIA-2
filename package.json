@@ -1,25 +1,27 @@
 {
-  "name": "eia-eleonora",
-  "version": "1.0.0",
-  "description": "EIA2 - zweiter Versuch",
-  "main": "index.js",
-  "scripts": {
-    "start": "node L06_Server/Server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Eleonora2709/Eleonora2709.github.io.git"
-  },
-  "author": "Eleonora Wolf",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Eleonora2709/Eleonora2709.github.io/issues"
-  },
-  "homepage": "https://github.com/Eleonora2709/Eleonora2709.github.io#readme",
-  "dependencies": {
-    "@types/node": "^12.12.25",
-    "tslint": "^5.20.1",
-    "typescript": "^3.7.5"
-  },
-  "devDependencies": {}
+    "name": "eia-eleonora",
+    "version": "1.0.0",
+    "description": "EIA2 - zweiter Versuch",
+    "main": "index.js",
+    "scripts": {
+        "start": "node L11_Test/Server/Server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Eleonora2709/EIA-2.git"
+    },
+    "author": "Eleonora Wolf",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Eleonora2709/Eleonora2709.github.io/issues"
+    },
+    "homepage": "https://github.com/Eleonora2709/Eleonora2709.github.io#readme",
+    "dependencies": {
+        "@types/node": "^12.12.25",
+        "tslint": "^5.20.1",
+        "typescript": "^3.7.5"
+    },
+    "devDependencies": {}
 }
+
+//mongodb+srv://ruehreia:1234567890@cluster0-rrdtz.mongodb.net/test?retryWrites=true&w=majority
