@@ -4,7 +4,7 @@ namespace L11{
         velocity: Vector;
         bodycolor: string;
         wingcolor: string;
-        size: number;
+        size: number = 5;
 
         constructor(_size: number, _position?: Vector) {
 
@@ -20,8 +20,8 @@ namespace L11{
             else
                 this.position = new Vector(Math.random()*crc2.canvas.width, Math.floor(Math.random() * 250) + 20 );
                 
-            this.velocity = new Vector(Math.random() - 1 * 5, (Math.random() * 2 ) + Math.random() - 1) ;
-            //this.velocity.random(100, 200); 
+            this.velocity = new Vector(Math.random() - 1 * 2, (Math.random() * 2 ) + Math.random() - 1) ;
+            //this.velocity.random(2, 5); 
             
         }
 
@@ -43,7 +43,7 @@ namespace L11{
         } */
 
         draw(): void {
-
+            
             //body
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
@@ -58,7 +58,7 @@ namespace L11{
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
             crc2.beginPath();
-            crc2.arc(0, 0, 11, 0, 2 * Math.PI);
+            crc2.arc(0, 0, 15, 0, 2 * Math.PI);
             crc2.fillStyle = this.bodycolor
             crc2.fill();
             crc2.restore();
@@ -68,7 +68,7 @@ namespace L11{
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
             crc2.beginPath();
-            crc2.arc(-4, -2, 2, 0, 2 * Math.PI);
+            crc2.arc(-6, -2, 2, 0, 2 * Math.PI);
             crc2.fillStyle = "black";
             crc2.fill();
             crc2.restore();
@@ -78,9 +78,9 @@ namespace L11{
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
             crc2.beginPath();
-            crc2.moveTo(-11, -2);
+            crc2.moveTo(-15, -2);
             crc2.lineTo(-26, 4);
-            crc2.lineTo(-9, 6);
+            crc2.lineTo(-12, 6);
             crc2.fillStyle = "gold";
             crc2.fill();
             crc2.restore();
@@ -90,18 +90,18 @@ namespace L11{
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
             crc2.beginPath();
-            crc2.moveTo(13, -4);
-            crc2.lineTo(30, -35);
-            crc2.lineTo(47, -4);
+            crc2.arc(30, -3, 15, 6, Math.PI);
+            //crc2.moveTo(13, -4);
+            //crc2.lineTo(30, -35);
+            //crc2.lineTo(47, -4);
             crc2.fillStyle = this.wingcolor;
             crc2.fill();
             crc2.restore();
             crc2.closePath();
     
         }
-
         isHit (_hotspot: Vector): boolean {
-            let hitsize: number = 40 * this.size;
+            let hitsize: number = 10 * this.size;
             let difference: Vector = new Vector(_hotspot.x - this.position.x, _hotspot.y - this.position.y);
             return (Math.abs(difference.x) < hitsize && Math.abs (difference.y) < hitsize) //Entfernung vertikale
         }

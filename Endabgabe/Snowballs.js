@@ -1,10 +1,12 @@
 var L11;
 (function (L11) {
     class Snowball {
+        //radius: number;
         constructor(_size, _position) {
             //super(_position);
             this.position = _position;
             this.size = _size;
+            //this.radius = 20;
             console.log("Snowball constructor");
         }
         draw() {

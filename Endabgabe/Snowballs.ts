@@ -3,12 +3,14 @@ namespace L11{
         position: Vector;
         velocity: Vector;
         size: number;
+        //radius: number;
 
         constructor(_size: number, _position: Vector) {
 
             //super(_position);
             this.position = _position;
             this.size = _size;
+            //this.radius = 20;
 
             console.log("Snowball constructor");
             

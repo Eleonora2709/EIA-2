@@ -1,6 +1,6 @@
 namespace L11 {
     window.addEventListener("load", handleLoad);
-    window.addEventListener('contextmenu',function (e) {e.preventDefault();});
+    window.addEventListener('contextmenu', function (e) { e.preventDefault(); });
     export let crc2: CanvasRenderingContext2D;
 
     let snowflakeArray: Snowflake[] = [];
@@ -8,6 +8,7 @@ namespace L11 {
     let throwSnowball: Snowball;
     let bird: Bird; //nicht sicher, ob richtig
     let throwBirdfood: Birdfood;
+    //let fps: number = 25;
 
     function handleLoad(_event: Event): void {
         console.log("starting");
@@ -31,6 +32,7 @@ namespace L11 {
             snowflakeArray.push(snowflake);
 
         }
+        
         window.setInterval(update, 20);
 
 
@@ -62,35 +64,52 @@ namespace L11 {
     }
 
     function handleClick(_event: MouseEvent): void {
-        let snowballVector: Vector = new Vector(_event.x, _event.y);
+        let snowballVector: Vector = new Vector(_event.offsetX , _event.offsetY); 
         throwSnowball = new Snowball(5, snowballVector);
-       /* let hotspot: Vector = new Vector(_event.x - crc2.canvas.offsetLeft, _event.y - crc2.canvas.offsetTop);
-        let birdHit: Bird | null = getBirdHit(hotspot);
+        console.log(snowballVector);
+
+        //let hotspot: Vector = new Vector(_event.x - crc2.canvas.offsetLeft, _event.y - crc2.canvas.offsetTop);
+        let birdHit: Bird | null = getBirdHit(snowballVector);
         if (birdHit)
-           breakBird(birdHit);
-           console.log ("Shooting Snowball") */
-    }
-    
-
-
-    function handleRightClick(_event: MouseEvent): void {
-        let birdfoodVector: Vector = new Vector(_event.x, _event.y);
-        throwBirdfood = new Birdfood(5, birdfoodVector);
-
+            breakBird(birdHit);
+        console.log("Shooting Snowball")
+        //window.setTimeout(breakBird, 500 / fps);
     }
 
-   /* function breakBird (_bird: Bird): void {
 
-        let index: number = bird.indexOf(_bird);
+
+      function handleRightClick(_event: MouseEvent): void {
+          let birdfoodVector: Vector = new Vector(_event.x, _event.y);
+          throwBirdfood = new Birdfood(5, birdfoodVector);
+  
+      } 
+
+    function breakBird(_bird: Bird): void {
+
+        let index: number = birdArray.indexOf(_bird);
         birdArray.splice(index, 1); //index sucht an welcher Stelle Bird im Array ist --> löscht an dieser Stelle eine Instanz heraus
 
     }
 
-    function getBirdHit (_hotspot: Vector): Bird | null {
+    function getBirdHit(_hotspot: Vector): Bird | null {
         for (let bird of birdArray) {
             if (bird.isHit(_hotspot))
                 return bird;
         }
         return null;
-    } */
-}
+    }
+
+
+    /* function CheckIfHit (): void{
+         if (throwSnowball.radius <= 6){
+             console.log(Snowball);
+             let hit: boolean = false;
+ 
+         for (let i: number = 0; i < Snowball.length; i++){
+             if (Snowball) {
+ 
+         }
+         }
+     }
+     }  */
+} 

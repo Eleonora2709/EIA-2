@@ -18,17 +18,14 @@ var L11;
         drawMountains(posMountains, 75, 200, "grey", "white");
         drawMountains(posMountains, 50, 150, "grey", "lightgrey");
         drawSnowman({ x: 400, y: 600 });
-        drawTree({ x: 600, y: 500 }, { x: 1.8, y: 1.8 });
-        drawTree({ x: 100, y: 550 }, { x: 2.4, y: 2.4 });
-        drawTree({ x: 1060, y: 370 }, { x: 1.2, y: 1.2 });
-        drawTree({ x: 260, y: 280 }, { x: 0.3, y: 0.3 });
-        drawTree({ x: 340, y: 310 }, { x: 0.35, y: 0.35 });
-        drawTree({ x: 760, y: 300 }, { x: 0.5, y: 0.5 });
-        drawTree({ x: 960, y: 270 }, { x: 0.3, y: 0.3 });
+        drawTree({ x: 700, y: 500 }, { x: 1.0, y: 1.8 });
+        drawTree({ x: 100, y: 550 }, { x: 1.0, y: 1.4 });
+        drawTree({ x: 400, y: 370 }, { x: 1.2, y: 1.2 });
+        drawTree({ x: 840, y: 350 }, { x: 0.5, y: 0.7 });
         drawBirdhouse({ x: 900, y: 400 });
         //drawFlyingBird({ x: 300, y: 100 });
         //drawFlyingBird({ x: 800, y: 140 });
-        drawStandingBird({ x: 965, y: 305 });
+        drawStandingBird({ x: 550, y: 500 });
         //drawSnowflake();
         //drawFlyingBirdies({ x: 20, y: 20}, { x: canvas.width -90, y: canvas.height -480})
         crc2.save();
@@ -109,7 +106,7 @@ var L11;
         crc2.save();
         crc2.translate(_position.x, _position.y);
         crc2.beginPath();
-        crc2.arc(0, 0, 50, 0, 2 * Math.PI);
+        crc2.arc(0, 0, 40, 0, 2 * Math.PI);
         crc2.fillStyle = "white";
         crc2.fill();
         crc2.restore();
@@ -117,7 +114,7 @@ var L11;
         crc2.save();
         crc2.translate(_position.x, _position.y);
         crc2.beginPath();
-        crc2.arc(0, -60, 40, 0, 2 * Math.PI);
+        crc2.arc(0, -60, 30, 0, 2 * Math.PI);
         crc2.fillStyle = "white";
         crc2.fill();
         crc2.restore();
@@ -125,19 +122,19 @@ var L11;
         crc2.save();
         crc2.translate(_position.x, _position.y);
         crc2.beginPath();
-        crc2.arc(0, -120, 30, 0, 2 * Math.PI);
+        crc2.arc(0, -110, 20, 0, 2 * Math.PI);
         crc2.fillStyle = "white";
         crc2.fill();
         crc2.restore();
         crc2.closePath();
-        //carrot nose
+        //Schnabel
         crc2.save();
         crc2.translate(_position.x, _position.y);
         crc2.beginPath();
-        crc2.moveTo(-5, -120);
-        crc2.lineTo(-45, -112);
-        crc2.lineTo(-5, -110);
-        crc2.fillStyle = "orange";
+        crc2.moveTo(0, -105);
+        crc2.lineTo(20, -110);
+        crc2.lineTo(0, -115);
+        crc2.fillStyle = "#ffbc40";
         crc2.fill();
         crc2.restore();
         crc2.closePath();
@@ -229,69 +226,12 @@ var L11;
         crc2.restore();
         crc2.closePath();
     }
-    /* function drawFlyingBird(_position: Vector): void {
-
-        //body
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-        crc2.beginPath();
-        crc2.ellipse(31, 1, 25, 15, Math.PI / 1, 0, 2 * Math.PI);
-        crc2.fillStyle = getRandomColor();
-        crc2.fill();
-        crc2.restore();
-        crc2.closePath();
-
-        //head
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-        crc2.beginPath();
-        crc2.arc(0, 0, 11, 0, 2 * Math.PI);
-        crc2.fillStyle = getRandomColor();
-        crc2.fill();
-        crc2.restore();
-        crc2.closePath();
-
-        //eye
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-        crc2.beginPath();
-        crc2.arc(-4, -2, 2, 0, 2 * Math.PI);
-        crc2.fillStyle = "black";
-        crc2.fill();
-        crc2.restore();
-        crc2.closePath();
-
-        //beak
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-        crc2.beginPath();
-        crc2.moveTo(-11, -2);
-        crc2.lineTo(-26, 4);
-        crc2.lineTo(-9, 6);
-        crc2.fillStyle = "gold";
-        crc2.fill();
-        crc2.restore();
-        crc2.closePath();
-
-        //wings
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-        crc2.beginPath();
-        crc2.moveTo(13, -4);
-        crc2.lineTo(30, -35);
-        crc2.lineTo(47, -4);
-        crc2.fillStyle = getRandomColor();
-        crc2.fill();
-        crc2.restore();
-        crc2.closePath();
-
-    } */
     function drawStandingBird(_position) {
         //body
         crc2.save();
         crc2.translate(_position.x, _position.y);
         crc2.beginPath();
-        crc2.ellipse(0, 35, 18, 30, Math.PI / 1, 0, 2 * Math.PI);
+        crc2.ellipse(15, 35, 20, 35, Math.PI / -5, 0, 2 * Math.PI);
         crc2.fillStyle = getRandomColor();
         crc2.fill();
         crc2.restore();
@@ -309,9 +249,9 @@ var L11;
         crc2.save();
         crc2.translate(_position.x, _position.y);
         crc2.beginPath();
-        crc2.moveTo(-6, 0);
-        crc2.lineTo(0, 10);
-        crc2.lineTo(6, 0);
+        crc2.moveTo(-15, -2);
+        crc2.lineTo(-26, 4);
+        crc2.lineTo(-12, 6);
         crc2.fillStyle = "gold";
         crc2.fill();
         crc2.restore();
@@ -320,37 +260,20 @@ var L11;
         crc2.save();
         crc2.translate(_position.x, _position.y);
         crc2.beginPath();
-        crc2.arc(-4, -5, 2, 0, 2 * Math.PI);
+        crc2.arc(-4, -5, 3, 0, 2 * Math.PI);
         crc2.fillStyle = "black";
         crc2.fill();
         crc2.restore();
         crc2.closePath();
+        //wing
         crc2.save();
         crc2.translate(_position.x, _position.y);
         crc2.beginPath();
-        crc2.arc(4, -5, 2, 0, 2 * Math.PI);
-        crc2.fillStyle = "black";
-        crc2.fill();
-        crc2.restore();
-        crc2.closePath();
-        //wings
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-        crc2.beginPath();
-        crc2.moveTo(-14, 20);
-        crc2.lineTo(-65, 30);
-        crc2.lineTo(-14, 48);
-        crc2.fillStyle = "sienna";
-        crc2.fill();
-        crc2.restore();
-        crc2.closePath();
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-        crc2.beginPath();
-        crc2.moveTo(16, 20);
-        crc2.lineTo(67, 30);
-        crc2.lineTo(16, 48);
-        crc2.fillStyle = "sienna";
+        crc2.arc(20, 20, 17, 6, Math.PI);
+        //crc2.moveTo(13, -4);
+        //crc2.lineTo(30, -35);
+        //crc2.lineTo(47, -4);
+        crc2.fillStyle = this.wingcolor;
         crc2.fill();
         crc2.restore();
         crc2.closePath();
@@ -358,8 +281,8 @@ var L11;
         crc2.save();
         crc2.translate(_position.x, _position.y);
         crc2.beginPath();
-        crc2.moveTo(-5, 63);
-        crc2.lineTo(-5, 86);
+        crc2.moveTo(20, 63);
+        crc2.lineTo(20, 86);
         crc2.lineWidth = 3;
         crc2.strokeStyle = "gold";
         crc2.stroke();
@@ -368,8 +291,8 @@ var L11;
         crc2.save();
         crc2.translate(_position.x, _position.y);
         crc2.beginPath();
-        crc2.moveTo(5, 63);
-        crc2.lineTo(5, 86);
+        crc2.moveTo(30, 63);
+        crc2.lineTo(30, 86);
         crc2.lineWidth = 3;
         crc2.strokeStyle = "gold";
         crc2.stroke();
