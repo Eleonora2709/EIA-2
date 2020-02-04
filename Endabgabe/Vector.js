@@ -20,6 +20,12 @@ var L11;
             let length = _minLength = Math.random() * (_maxLength - _minLength);
             this.scale(length);
         }
+        static getDifference(_v0, _v1) {
+            return new Vector(_v0.x - _v1.x, _v0.y - _v1.y);
+        }
+        get length() {
+            return Math.hypot(this.x, this.y);
+        }
     }
     L11.Vector = Vector;
 })(L11 || (L11 = {}));
