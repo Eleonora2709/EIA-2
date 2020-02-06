@@ -7,6 +7,7 @@ var L11;
     let bird; //nicht sicher, ob richtig
     let throwBirdfood;
     let fps = 25;
+    let score = 1000;
     function handleLoad(_event) {
         console.log("starting");
         let canvas = document.querySelector("canvas");
@@ -15,6 +16,12 @@ var L11;
         L11.crc2 = canvas.getContext("2d");
         canvas.addEventListener("click", handleClick);
         canvas.addEventListener("contextmenu", handleRightClick);
+        //canvas.addEventListener(TASK.EAT, breakBird);
+        window.setInterval(generateScore, 1000);
+        function generateScore() {
+            console.log(score);
+            score--;
+        }
         for (let i = 0; i < 20; i++) {
             bird = new L11.Bird(2);
             console.log("new bird");
@@ -49,6 +56,7 @@ var L11;
                     throwBirdfood.size -= 0.2;
                 if (throwBirdfood.size <= 2.6 && throwBirdfood.size >= 0.002)
                     throwBirdfood.size -= 0.002;
+                //this.bird.move();
             }
         }
     }
@@ -58,6 +66,7 @@ var L11;
         throwSnowball = new L11.Snowball(5, snowballVector);
         window.setTimeout(getBirdHit, 500, snowballVector);
         //let hotspot: Vector = new Vector(_event.x - crc2.canvas.offsetLeft, _event.y - crc2.canvas.offsetTop);
+        score = +10;
     }
     function handleRightClick(_event) {
         console.log(_event);
@@ -66,10 +75,13 @@ var L11;
         //if (isNear(throwBirdFood.position.x))
         for (let bird of birdArray) {
             if (isNear(bird.position)) {
-                bird.velocity = L11.Vector.getDifference(new L11.Vector(throwBirdfood.position.x, throwBirdfood.stand), bird.position);
+                this.job = L11.TASK.FLYTOFOOD;
+                bird.velocity = L11.Vector.getDifference(new L11.Vector(throwBirdfood.position.x + Math.random() * (80 - 10) + 10, throwBirdfood.stand), bird.position);
                 bird.velocity.scale(0.01); //Strecke wird in Bereiche unterteilt
                 setTimeout(bird.isPicking, 100 * fps); // wird mit scale multipliziert damit das 1 ergibt
-                //return;
+                if (bird.velocity.x != 0) {
+                    bird.job = L11.TASK.EAT;
+                }
             }
         }
     }
@@ -84,7 +96,7 @@ var L11;
         for (let bird of birdArray) {
             if (bird.isHit(_hotspot)) {
                 breakBird(bird);
-                return;
+                //return;
             }
         }
     }

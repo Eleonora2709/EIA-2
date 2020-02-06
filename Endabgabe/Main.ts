@@ -1,4 +1,6 @@
 namespace L11 {
+
+
     window.addEventListener("load", handleLoad);
     //window.addEventListener('contextmenu', function (e) { e.preventDefault(); });
     export let crc2: CanvasRenderingContext2D;
@@ -9,6 +11,11 @@ namespace L11 {
     let bird: Bird; //nicht sicher, ob richtig
     let throwBirdfood: Birdfood;
     let fps: number = 25;
+    let score: number = 1000;
+
+
+
+
 
     function handleLoad(_event: Event): void {
         console.log("starting");
@@ -19,6 +26,13 @@ namespace L11 {
 
         canvas.addEventListener("click", handleClick);
         canvas.addEventListener("contextmenu", handleRightClick);
+        //canvas.addEventListener(TASK.EAT, breakBird);
+        window.setInterval(generateScore, 1000);
+
+        function generateScore(): void {
+            console.log(score);
+            score--
+        }
 
         for (let i: number = 0; i < 20; i++) {
             bird = new Bird(2);
@@ -62,9 +76,10 @@ namespace L11 {
             if (throwBirdfood) {
                 throwBirdfood.draw();
                 if (throwBirdfood.size >= 2.7)
-                throwBirdfood.size -= 0.2;
+                    throwBirdfood.size -= 0.2;
                 if (throwBirdfood.size <= 2.6 && throwBirdfood.size >= 0.002)
-                throwBirdfood.size -= 0.002;
+                    throwBirdfood.size -= 0.002;
+                //this.bird.move();
             }
         }
 
@@ -77,7 +92,7 @@ namespace L11 {
         window.setTimeout(getBirdHit, 500, snowballVector);
 
         //let hotspot: Vector = new Vector(_event.x - crc2.canvas.offsetLeft, _event.y - crc2.canvas.offsetTop);
-
+        score =+ 10;
     }
 
 
@@ -88,22 +103,31 @@ namespace L11 {
         throwBirdfood = new Birdfood(5, birdfoodVector);
         //if (isNear(throwBirdFood.position.x))
 
-            for (let bird of birdArray) {
-                if (isNear(bird.position)) {
-                    bird.velocity = Vector.getDifference(new Vector (throwBirdfood.position.x, throwBirdfood.stand), bird.position); 
-                    bird.velocity.scale (0.01); //Strecke wird in Bereiche unterteilt
-                    setTimeout(bird.isPicking, 100 * fps); // wird mit scale multipliziert damit das 1 ergibt
-                    //return;
+        for (let bird of birdArray) {
+            if (isNear(bird.position)) {
+                this.job = TASK.FLYTOFOOD;
+                bird.velocity = Vector.getDifference(new Vector(throwBirdfood.position.x + Math.random() * (80 - 10) + 10, throwBirdfood.stand), bird.position);
+                bird.velocity.scale(0.01); //Strecke wird in Bereiche unterteilt
+                setTimeout(bird.isPicking, 100 * fps); // wird mit scale multipliziert damit das 1 ergibt
+
+
+
+                if (bird.velocity.x != 0) {
+                    bird.job = TASK.EAT;
+
                 }
+
             }
         }
+    }
 
-    
+
+
 
     function breakBird(_bird: Bird): void {
         let index: number = birdArray.indexOf(_bird);
         birdArray.splice(index, 1); //index sucht an welcher Stelle Bird im Array ist --> löscht an dieser Stelle eine Instanz heraus
-        if(birdArray.length <= 0){
+        if (birdArray.length <= 0) {
             location.replace("startscreen.html");
         }
     }
@@ -112,13 +136,13 @@ namespace L11 {
         for (let bird of birdArray) {
             if (bird.isHit(_hotspot)) {
                 breakBird(bird);
-                return;
+                //return;
             }
         }
     }
-    function isNear (_hotspot: Vector): boolean {
+    function isNear(_hotspot: Vector): boolean {
         let nearsize: number = 100;
-        let getDifference: Vector = Vector.getDifference(_hotspot, new Vector (throwBirdfood.position.x, throwBirdfood.stand));
+        let getDifference: Vector = Vector.getDifference(_hotspot, new Vector(throwBirdfood.position.x, throwBirdfood.stand));
         return (nearsize >= getDifference.length);
     }
 }

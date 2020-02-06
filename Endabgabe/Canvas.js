@@ -25,7 +25,7 @@ var L11;
         drawBirdhouse({ x: 900, y: 400 });
         //drawFlyingBird({ x: 300, y: 100 });
         //drawFlyingBird({ x: 800, y: 140 });
-        drawStandingBird({ x: 550, y: 500 });
+        //drawStandingBird({ x: 550, y: 500 });
         //drawSnowflake();
         //drawFlyingBirdies({ x: 20, y: 20}, { x: canvas.width -90, y: canvas.height -480})
         crc2.save();
@@ -223,79 +223,6 @@ var L11;
         crc2.stroke();
         crc2.fillStyle = "#2c1410";
         crc2.fill();
-        crc2.restore();
-        crc2.closePath();
-    }
-    function drawStandingBird(_position) {
-        //body
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-        crc2.beginPath();
-        crc2.ellipse(15, 35, 20, 35, Math.PI / -5, 0, 2 * Math.PI);
-        crc2.fillStyle = getRandomColor();
-        crc2.fill();
-        crc2.restore();
-        crc2.closePath();
-        //head
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-        crc2.beginPath();
-        crc2.arc(0, 0, 15, 0, 2 * Math.PI);
-        crc2.fillStyle = getRandomColor();
-        crc2.fill();
-        crc2.restore();
-        crc2.closePath();
-        //beak
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-        crc2.beginPath();
-        crc2.moveTo(-15, -2);
-        crc2.lineTo(-26, 4);
-        crc2.lineTo(-12, 6);
-        crc2.fillStyle = "gold";
-        crc2.fill();
-        crc2.restore();
-        crc2.closePath();
-        //eyes
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-        crc2.beginPath();
-        crc2.arc(-4, -5, 3, 0, 2 * Math.PI);
-        crc2.fillStyle = "black";
-        crc2.fill();
-        crc2.restore();
-        crc2.closePath();
-        //wing
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-        crc2.beginPath();
-        crc2.arc(20, 20, 17, 6, Math.PI);
-        //crc2.moveTo(13, -4);
-        //crc2.lineTo(30, -35);
-        //crc2.lineTo(47, -4);
-        crc2.fillStyle = this.wingcolor;
-        crc2.fill();
-        crc2.restore();
-        crc2.closePath();
-        //legs
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-        crc2.beginPath();
-        crc2.moveTo(20, 63);
-        crc2.lineTo(20, 86);
-        crc2.lineWidth = 3;
-        crc2.strokeStyle = "gold";
-        crc2.stroke();
-        crc2.restore();
-        crc2.closePath();
-        crc2.save();
-        crc2.translate(_position.x, _position.y);
-        crc2.beginPath();
-        crc2.moveTo(30, 63);
-        crc2.lineTo(30, 86);
-        crc2.lineWidth = 3;
-        crc2.strokeStyle = "gold";
-        crc2.stroke();
         crc2.restore();
         crc2.closePath();
     }
