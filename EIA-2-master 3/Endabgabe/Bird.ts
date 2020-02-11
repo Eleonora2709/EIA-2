@@ -185,7 +185,7 @@ namespace L11 {
 
 
        isHit(_hotspot: Vector): boolean {
-            let hitsize: number = 15 * this.size;
+            let hitsize: number = 20 * this.size;
             let difference: Vector = new Vector(_hotspot.x - this.position.x, _hotspot.y - this.position.y);
             return (Math.abs(difference.x) < hitsize && Math.abs(difference.y) < hitsize) //Entfernung vertikale
         }

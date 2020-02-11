@@ -57,7 +57,7 @@ namespace L11 {
 
 
         //generateBird
-        for (let i: number = 0; i < 1; i++) {
+        for (let i: number = 0; i < 10; i++) {
             bird = new Bird(2);
             console.log("new bird");
             birdArray.push(bird);
@@ -227,7 +227,7 @@ namespace L11 {
         let query: string = "command=retrieve";
         let response: Response = await fetch(url + "?" + query);
         let responseText: string = await response.text();
-        //let finalresponse: any[] = JSON.parse(responseText);
+        let entries: any[] = JSON.parse(responseText);
 
         alert(responseText);
         let scores: HTMLDivElement = <HTMLDivElement>document.querySelector("span#showScores");

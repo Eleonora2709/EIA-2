@@ -45,7 +45,7 @@ var L11;
         highscorebutton.addEventListener("click", gethighscorelist);
         document.getElementById("highscorelist").addEventListener("click", gethighscorelist);
         //generateBird
-        for (let i = 0; i < 1; i++) {
+        for (let i = 0; i < 10; i++) {
             bird = new L11.Bird(2);
             console.log("new bird");
             birdArray.push(bird);
