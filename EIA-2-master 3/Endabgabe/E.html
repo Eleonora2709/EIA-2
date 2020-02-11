@@ -30,6 +30,7 @@
         <p class="text2">Rechtsklick: Schieße die Vögel mit dem Schneeball ab</p>
         <button id="startbutton" type="button">START</button>
         <button id="highscorebutton" type="button">HIGHSCORE</button>
+        <span id="highscorelist"></span>
     </div>
 
     <div id="game">
@@ -40,19 +41,21 @@
         <h1 id="explanation">
             ZUPPA GUT
         </h1>
-        <form id="nameForm" method="SET">
-            <h2>
-                NAME BITTE
-                <p><input type="text" name="playername"></p>
-            </h2>
-        </form>
         <div class="yourScore"></div>
+
+        <h2>
+            NAME BITTE
+            <button id="sendData">SUBMIT SCORE AND NAME</button>
+        </h2>
+
+
         <div>
             <a href="javascript:window.location.href=window.location.href">
-                <button id="startbutton" type="button">SPIEL DAS SPIEL NOCHMAL</button></a>
+                <button id="highscorelistbutton" type="button">SPIEL DAS SPIEL NOCHMAL</button></a>
 
-            <button type="button" form="submitForm">TRAGE DEINEN NAMEN EIN</button>
-            <h3 id="highscores">HIGHSCORE</h3>
+            <button id="highscorelistbutton" type="button">HIGHSCORES</button>
+            <span id="showScores"></span>
+            <!-- <h3 id="highscores">HIGHSCORE</h3> -->
 
         </div>
     </div>
