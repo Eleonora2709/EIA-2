@@ -34,7 +34,7 @@ var L11;
             score--;
         }
         //generateBird
-        for (let i = 0; i < 1; i++) {
+        for (let i = 0; i < 20; i++) {
             bird = new L11.Bird(2);
             console.log("new bird");
             birdArray.push(bird);
