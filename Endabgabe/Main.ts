@@ -11,7 +11,7 @@ namespace L11 {
     let bird: Bird; //nicht sicher, ob richtig
     let throwBirdfood: Birdfood;
     let fps: number = 25;
-    let score: number = 1000;
+   // let score: number = 1000;
     let node: HTMLDivElement;
     let wroteScore: boolean = false;
     let startbutton: HTMLButtonElement;
@@ -30,7 +30,7 @@ namespace L11 {
     function handleLoad(_event: Event): void {
         console.log("starting");
 
-        document.getElementById("startscreen").style.display = "none";
+        document.getElementById("startscreen").style.display = "none"; 
         document.getElementById("game").style.display = "initial";
 
 
@@ -42,12 +42,12 @@ namespace L11 {
         canvas.addEventListener("click", handleClick);
         canvas.addEventListener("contextmenu", handleRightClick);
         //canvas.addEventListener(TASK.EAT, breakBird);
-        window.setInterval(generateScore, 1000);
+       // window.setInterval(generateScore, 1000);
 
-        function generateScore(): void {
-            console.log(score);
-            score--
-        }
+        // function generateScore(): void {
+        //     console.log(score);
+        //     score--
+        // }
 
         //generateBird
         for (let i: number = 0; i < 1; i++) {
@@ -109,9 +109,6 @@ namespace L11 {
     }
 
     function handleClick(_event: MouseEvent): void {
-
-        score--;
-
         console.log(_event);
         let snowballVector: Vector = new Vector(_event.offsetX, _event.offsetY);
         throwSnowball = new Snowball(5, snowballVector);
@@ -124,9 +121,6 @@ namespace L11 {
 
 
     function handleRightClick(_event: MouseEvent): void {
-
-        score--;
-
         console.log(_event);
         let birdfoodVector: Vector = new Vector(_event.offsetX, _event.offsetY);
         throwBirdfood = new Birdfood(5, birdfoodVector);
@@ -159,7 +153,7 @@ namespace L11 {
         if (birdArray.length <= 0) {
             console.log("ALL BIRDS ARE HIT");
             //location.replace("EndScreen.html"); //Verlinkung zum Endscreen
-            showGameOverScreen();
+            showGameOverScreen ();
         }
     }
 
@@ -178,20 +172,19 @@ namespace L11 {
     }
 
 
-    //https://eia-eleonora.herokuapp.com/ -> Adresse meiner App
+//https://eia-eleonora.herokuapp.com/ -> Adresse meiner App
     export function showGameOverScreen(): void {
         document.getElementById("game").style.display = "none";
         document.getElementById("endscreen").style.display = "initial";
-        node = <HTMLDivElement>document.getElementsByClassName("yourScore")[0];
-        scoreToHTML();
-    }
+        // node = <HTMLDivElement>document.getElementsByClassName("yourScore")[0];
+        // scoreToHTML();
+    } 
 
-    function scoreToHTML(): void {
-        if (!wroteScore) {
-            let content: string = "";
-            content = "Your score: " + score;
-            node.innerHTML += content;
-            wroteScore = true;
-        }
+    // function scoreToHTML(): void {
+    //     if (!wroteScore) {
+    //         let content: string = "";
+    //         content = "Your score: " + score;
+    //         node.innerHTML += content;
+    //         wroteScore = true;
+    //     }
     }
-}
