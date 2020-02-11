@@ -7,7 +7,7 @@ var L11;
     let bird; //nicht sicher, ob richtig
     let throwBirdfood;
     let fps = 25;
-    // let score: number = 1000;
+    let score = 1000;
     let node;
     let wroteScore = false;
     let startbutton;
@@ -28,11 +28,11 @@ var L11;
         canvas.addEventListener("click", handleClick);
         canvas.addEventListener("contextmenu", handleRightClick);
         //canvas.addEventListener(TASK.EAT, breakBird);
-        // window.setInterval(generateScore, 1000);
-        // function generateScore(): void {
-        //     console.log(score);
-        //     score--
-        // }
+        window.setInterval(generateScore, 1000);
+        function generateScore() {
+            console.log(score);
+            score--;
+        }
         //generateBird
         for (let i = 0; i < 1; i++) {
             bird = new L11.Bird(2);
@@ -79,6 +79,7 @@ var L11;
         }
     }
     function handleClick(_event) {
+        score--;
         console.log(_event);
         let snowballVector = new L11.Vector(_event.offsetX, _event.offsetY);
         throwSnowball = new L11.Snowball(5, snowballVector);
@@ -87,6 +88,7 @@ var L11;
         //score =+ 10;
     }
     function handleRightClick(_event) {
+        score--;
         console.log(_event);
         let birdfoodVector = new L11.Vector(_event.offsetX, _event.offsetY);
         throwBirdfood = new L11.Birdfood(5, birdfoodVector);
@@ -129,16 +131,17 @@ var L11;
     function showGameOverScreen() {
         document.getElementById("game").style.display = "none";
         document.getElementById("endscreen").style.display = "initial";
-        // node = <HTMLDivElement>document.getElementsByClassName("yourScore")[0];
-        // scoreToHTML();
+        node = document.getElementsByClassName("yourScore")[0];
+        scoreToHTML();
     }
     L11.showGameOverScreen = showGameOverScreen;
-    // function scoreToHTML(): void {
-    //     if (!wroteScore) {
-    //         let content: string = "";
-    //         content = "Your score: " + score;
-    //         node.innerHTML += content;
-    //         wroteScore = true;
-    //     }
+    function scoreToHTML() {
+        if (!wroteScore) {
+            let content = "";
+            content = "Your score: " + score;
+            node.innerHTML += content;
+            wroteScore = true;
+        }
+    }
 })(L11 || (L11 = {}));
 //# sourceMappingURL=Main.js.map

@@ -19,43 +19,43 @@
     <!-- <link rel="stylesheet" type="text/css" href="CanvasStyleSheet.css"> -->
 </head>
 
-<body>
+<body oncontextmenu="return false;"></body>
 
-    <div id="startscreen">
-        <h1 id="explanation">
-            VOGELJAGD
-        </h1>
-        <p class="text1">Ziel ist es, die Vögel so schnell wie es geht zu treffen. Sind alle Vögel weg, wird das Spiel eendet</p>
-        <p class="text2">Linksklick: Locke die Vögel, um sie besser zu treffen.</p>
-        <p class="text2">Rechtsklick: Schieße die Vögel mit dem Schneeball ab</p>
-        <button id="startbutton" type="button">START</button>
+<div id="startscreen">
+    <h1 id="explanation">
+        VOGELJAGD
+    </h1>
+    <p class="text1">Ziel ist es, die Vögel so schnell wie es geht zu treffen. Sind alle Vögel weg, wird das Spiel eendet</p>
+    <p class="text2">Linksklick: Locke die Vögel, um sie besser zu treffen.</p>
+    <p class="text2">Rechtsklick: Schieße die Vögel mit dem Schneeball ab</p>
+    <button id="startbutton" type="button">START</button>
+
+</div>
+
+<div id="game">
+    <canvas width=1200 height=650></canvas>
+</div>
+
+<div id="endscreen">
+    <h1 id="explanation">
+        ZUPPA GUT
+    </h1>
+    <form id="nameForm" method="SET">
+        <h2>
+            NAME BITTE
+            <p><input type="text" name="playername"></p>
+        </h2>
+    </form>
+    <div class="yourScore"></div>
+    <div>
+        <a href="javascript:window.location.href=window.location.href">
+            <button id="startbutton" type="button">SPIEL DAS SPIEL NOCHMAL</button></a>
+
+        <button type="button" form="submitForm">TRAGE DEINEN NAMEN EIN</button>
+        <button id="highscorebutton" type="button">HIGHSCORE</button>
 
     </div>
-
-    <div id="game">
-        <canvas width=1200 height=650></canvas>
-    </div>
-
-    <div id="endscreen">
-        <h1 id="explanation">
-            ZUPPA GUT
-        </h1>
-        <form id="nameForm" method="SET">
-            <h2>
-                NAME BITTE
-                <p><input type="text" name="playername"></p>
-            </h2>
-        </form>
-        <div class="yourScore"></div>
-        <div>
-            <a href="javascript:window.location.href=window.location.href">
-                <button id="startbutton" type="button">SPIEL DAS SPIEL NOCHMAL</button></a>
-
-            <!-- <button type="button" form="submitForm">TRAGE DEINEN NAMEN EIN</button> -->
-            <button id="highscorebutton" type="button">HIGHSCORE</button>
-            <span id="highscorelist"></span>
-        </div>
-    </div>
+</div>
 
 </body>
 
