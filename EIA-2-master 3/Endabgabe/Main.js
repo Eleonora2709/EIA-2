@@ -65,7 +65,7 @@ var L11;
     window.setInterval(update, fps);
     function update() {
         // console.log("Update");
-        L11.crc2.clearRect(0, 0, L11.crc2.canvas.width, L11.crc2.canvas.height);
+        // crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         L11.crc2.putImageData(L11.image, 0, 0);
         //window.setInterval(generateScore, 1000);
         for (let i = 0; i < birdArray.length; i++) {

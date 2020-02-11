@@ -68,7 +68,7 @@ var L11;
     function retrieveOrders() {
         return __awaiter(this, void 0, void 0, function* () {
             // console.log("Asking DB about Orders ", orders.find());
-            let cursor = yield highscores.find();
+            let cursor = yield highscores.find().sort({ highScore: -1 });
             let answer = yield cursor.toArray();
             console.log("DB CursorToArray", answer);
             if (answer != null) {
