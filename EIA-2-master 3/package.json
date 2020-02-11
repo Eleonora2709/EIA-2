@@ -1,0 +1,23 @@
+{
+    "name": "eia-eleonora",
+    "version": "1.0.0",
+    "description": "EIA2 - zweiter Versuch",
+    "main": "index.js",
+    "scripts": {
+        "start": "node Endabgabe/Server/Server.js remote"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Eleonora2709/EIA-2.git"
+    },
+    "author": "Eleonora Wolf",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Eleonora2709/Eleonora2709.github.io/issues"
+    },
+    "homepage": "https://github.com/Eleonora2709/Eleonora2709.github.io#readme",
+    "dependencies": {
+        "@types/mongodb": "^3.3.1",
+        "mongodb": "^3.3.2"
+    }
+}

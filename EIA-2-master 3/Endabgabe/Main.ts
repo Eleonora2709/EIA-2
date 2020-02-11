@@ -4,7 +4,7 @@ namespace L11 {
     window.addEventListener("load", init);
     //window.addEventListener('contextmenu', function (e) { e.preventDefault(); });
     export let crc2: CanvasRenderingContext2D;
-
+//https://eia-eleonora.herokuapp.com/
     let snowflakeArray: Snowflake[] = [];
     let birdArray: Bird[] = [];
     let throwSnowball: Snowball;
