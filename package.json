@@ -4,7 +4,7 @@
     "description": "EIA2 - zweiter Versuch",
     "main": "index.js",
     "scripts": {
-        "start": "node L11_Test/Server/Server.js"
+        "start": "node Endabgabe/Server/Server.js remote"
     },
     "repository": {
         "type": "git",
@@ -17,11 +17,7 @@
     },
     "homepage": "https://github.com/Eleonora2709/Eleonora2709.github.io#readme",
     "dependencies": {
-        "@types/node": "^12.12.25",
-        "tslint": "^5.20.1",
-        "typescript": "^3.7.5"
-    },
-    "devDependencies": {}
+        "@types/mongodb": "^3.3.1",
+        "mongodb": "^3.3.2"
+    }
 }
-
-//mongodb+srv://ruehreia:1234567890@cluster0-rrdtz.mongodb.net/test?retryWrites=true&w=majority

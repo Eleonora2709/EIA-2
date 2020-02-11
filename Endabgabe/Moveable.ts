@@ -7,7 +7,7 @@ namespace L11{
     
         }
 
-        move(_timeslice: number): void {
+        public move(_timeslice: number): void {
             //console.log("Moveable move");
             let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
             //offset.scale(_timeslice);

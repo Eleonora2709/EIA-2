@@ -5,24 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Endabgabe</title>
+    <title>Shoot the Birds</title>
     <script src="Moveable.js"></script>
     <script src="Snowflake.js"></script>
-    <script src="Main.js"></script>
     <script src="Vector.js"></script>
     <script src="Bird.js"></script>
     <script src="Canvas.js"></script>
+    <script src="Main.js"></script>
     <script src="Snowballs.js"></script>
     <script src="Birdfood.js"></script>
-    <link rel="stylesheet" href="Endabgabe.css">
+
+    <link rel="stylesheet" type="text/css" href="Endabgabe.css">
+    <!-- <link rel="stylesheet" type="text/css" href="CanvasStyleSheet.css"> -->
 </head>
 
 <body>
 
-    <canvas width=1200 height=650></canvas>
+    <div id="startscreen">
+        <h1 id="explanation">
+            VOGELJAGD
+        </h1>
+        <p class="text1">Ziel ist es, die Vögel so schnell wie es geht zu treffen. Sind alle Vögel weg, wird das Spiel eendet</p>
+        <p class="text2">Linksklick: Locke die Vögel, um sie besser zu treffen.</p>
+        <p class="text2">Rechtsklick: Schieße die Vögel mit dem Schneeball ab</p>
+        <button id="startbutton" type="button">START</button>
+        <button id="highscorebutton" type="button">HIGHSCORE</button>
+    </div>
 
-    <body oncontextmenu="return false;">
+    <div id="game">
+        <canvas width=1200 height=650></canvas>
+    </div>
 
-    </body>
+    <div id="endscreen">
+        <h1 id="explanation">
+            ZUPPA GUT
+        </h1>
+        <form id="nameForm" method="SET">
+            <h2>
+                NAME BITTE
+                <p><input type="text" name="playername"></p>
+            </h2>
+        </form>
+        <div class="yourScore"></div>
+        <div>
+            <a href="javascript:window.location.href=window.location.href">
+                <button id="startbutton" type="button">SPIEL DAS SPIEL NOCHMAL</button></a>
+
+            <button type="button" form="submitForm">TRAGE DEINEN NAMEN EIN</button>
+            <h3 id="highscores">HIGHSCORE</h3>
+
+        </div>
+    </div>
+
+</body>
 
 </html>

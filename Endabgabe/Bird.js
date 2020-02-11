@@ -29,6 +29,7 @@ var L11;
                 //this.velocity.random(2, 5); 
                 // }
             }
+            this.size = _size;
         }
         draw() {
             if (this.job == TASK.EAT) {

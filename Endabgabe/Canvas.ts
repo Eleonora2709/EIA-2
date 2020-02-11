@@ -4,11 +4,11 @@ namespace L11{
         y: number;
     }
     
-    window.addEventListener("load", handleLoad);
+   
     let crc2: CanvasRenderingContext2D;
     let goldencut: number = 0.58;
     export let image: ImageData;
-
+    window.addEventListener("load", handleLoad);
 
     function handleLoad(_event: Event): void {
         let canvas: HTMLCanvasElement | null = document.querySelector("canvas");

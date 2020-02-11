@@ -1,11 +1,11 @@
 namespace L11{
     export class Birdfood{
-        position: Vector;
-        velocity: Vector;
-        size: number;
-        stand: number;
+       public position: Vector;
+       public velocity: Vector;
+       public size: number;
+       public stand: number;
 
-        constructor(_size: number, _position: Vector) {
+       constructor(_size: number, _position: Vector) {
 
             //super(_position);
             this.position = _position;
@@ -21,7 +21,7 @@ namespace L11{
         
         //480, 530 Koordinaten wo der Schneeball hinfällt
 
-            draw(): void {
+        public draw(): void {
                 crc2.beginPath();
                 crc2.save();
                 crc2.translate(this.position.x, this.position.y);

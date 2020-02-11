@@ -1,8 +1,8 @@
 var L11;
 (function (L11) {
-    window.addEventListener("load", handleLoad);
     let crc2;
     let goldencut = 0.58;
+    window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         let canvas = document.querySelector("canvas");
         if (!canvas)

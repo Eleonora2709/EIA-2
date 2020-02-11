@@ -8,13 +8,13 @@ namespace L11 {
     }
 
     export class Bird extends Moveable {
-        position: Vector;
-        velocity: Vector;
-        bodycolor: string;
-        wingcolor: string;
-        size: number = 5;
-        target: Vector;
-        job: TASK = TASK.FLY;
+        public position: Vector;
+        public velocity: Vector;
+        public bodycolor: string;
+        public wingcolor: string;
+        public size: number = 5;
+        public target: Vector;
+        public job: TASK = TASK.FLY;
 
 
 
@@ -44,11 +44,11 @@ namespace L11 {
                 // }
             }
 
-
+            this.size = _size;
         }
 
 
-        draw(): void {
+         draw(): void {
 
 
             if (this.job == TASK.EAT) {
@@ -184,13 +184,13 @@ namespace L11 {
         //this.task = TASK.FLY;
 
 
-        isHit(_hotspot: Vector): boolean {
+       isHit(_hotspot: Vector): boolean {
             let hitsize: number = 10 * this.size;
             let difference: Vector = new Vector(_hotspot.x - this.position.x, _hotspot.y - this.position.y);
             return (Math.abs(difference.x) < hitsize && Math.abs(difference.y) < hitsize) //Entfernung vertikale
         }
 
-        isPicking: Function = (): void => {
+       isPicking: Function = (): void => {
             this.velocity = new Vector(0, 0);
             //neue Transformation setzten, neu skalieren auf -1 damit der Vogel sich umdreht und in die andere Richtung fliegt
             //this.velocity = new Vector(Math.random() + 1 * 5, (Math.random() * 2 ) + Math.random() + 1) ;

@@ -1,28 +1,28 @@
-namespace L11{
+namespace L11 {
     export class Snowflake extends Moveable {
-        position: Vector;
-        velocity: Vector;
-        size: number;
+        public position: Vector;
+        public velocity: Vector;
+        private size: number;
 
-        constructor(_size: number, _position?: Vector) {
+        public constructor(_size: number, _position?: Vector) {
 
             super(_position);
 
             console.log("Snowflake constructor");
-            
+
             if (_position)
                 this.position = _position;
             else
-                this.position = new Vector(Math.random()*crc2.canvas.width, Math.random()*crc2.canvas.height);
-                
-            this.velocity = new Vector(0,Math.random()+ 1*2);
+                this.position = new Vector(Math.random() * crc2.canvas.width, Math.random() * crc2.canvas.height);
+
+            this.velocity = new Vector(0, Math.random() + 1 * 2);
             //this.velocity.random(100, 200); 
             this.size = _size;
         }
 
-        draw(): void {
+        public draw(): void {
             //console.log("Snowflake draw"); 
-        
+
             crc2.beginPath();
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
@@ -34,5 +34,5 @@ namespace L11{
             crc2.closePath();
         }
     }
-    
+
 }

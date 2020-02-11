@@ -1,7 +1,7 @@
 namespace L11 {
 
 
-    window.addEventListener("load", handleLoad);
+    window.addEventListener("load", init);
     //window.addEventListener('contextmenu', function (e) { e.preventDefault(); });
     export let crc2: CanvasRenderingContext2D;
 
@@ -12,13 +12,28 @@ namespace L11 {
     let throwBirdfood: Birdfood;
     let fps: number = 25;
     let score: number = 1000;
+    let node: HTMLDivElement;
+    let wroteScore: boolean = false;
+    let startbutton: HTMLButtonElement;
 
 
 
 
+    function init(_event: Event): void {
+        document.getElementById("game").style.display = "none";
+        document.getElementById("endscreen").style.display = "none";
 
+        startbutton = <HTMLButtonElement>document.getElementById("startbutton");
+        startbutton.addEventListener("click", handleLoad);
+
+    }
     function handleLoad(_event: Event): void {
         console.log("starting");
+
+        document.getElementById("startscreen").style.display = "none";
+        document.getElementById("game").style.display = "initial";
+
+
         let canvas: HTMLCanvasElement | null = document.querySelector("canvas");
         if (!canvas)
             return;
@@ -34,12 +49,15 @@ namespace L11 {
             score--
         }
 
-        for (let i: number = 0; i < 20; i++) {
+        //generateBird
+        for (let i: number = 0; i < 1; i++) {
             bird = new Bird(2);
             console.log("new bird");
             birdArray.push(bird);
         }
 
+
+        //generateSnowflake
         for (let i: number = 0; i < 120; i++) {
             let snowflake: Snowflake = new Snowflake(2);
             //  console.log("new flake");
@@ -55,7 +73,7 @@ namespace L11 {
 
             crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
             crc2.putImageData(image, 0, 0);
-
+            //window.setInterval(generateScore, 1000);
 
             for (let i: number = 0; i < birdArray.length; i++) {
                 birdArray[i].draw();
@@ -81,23 +99,34 @@ namespace L11 {
                     throwBirdfood.size -= 0.002;
                 //this.bird.move();
             }
+
+            // function generateScore(): void {
+            //     console.log(score);
+            //     score--;
+            // }
         }
 
     }
 
     function handleClick(_event: MouseEvent): void {
+
+        score--;
+
         console.log(_event);
         let snowballVector: Vector = new Vector(_event.offsetX, _event.offsetY);
         throwSnowball = new Snowball(5, snowballVector);
         window.setTimeout(getBirdHit, 500, snowballVector);
 
         //let hotspot: Vector = new Vector(_event.x - crc2.canvas.offsetLeft, _event.y - crc2.canvas.offsetTop);
-        score =+ 10;
+        //score =+ 10;
     }
 
 
 
     function handleRightClick(_event: MouseEvent): void {
+
+        score--;
+
         console.log(_event);
         let birdfoodVector: Vector = new Vector(_event.offsetX, _event.offsetY);
         throwBirdfood = new Birdfood(5, birdfoodVector);
@@ -128,7 +157,9 @@ namespace L11 {
         let index: number = birdArray.indexOf(_bird);
         birdArray.splice(index, 1); //index sucht an welcher Stelle Bird im Array ist --> löscht an dieser Stelle eine Instanz heraus
         if (birdArray.length <= 0) {
-            location.replace("startscreen.html");
+            console.log("ALL BIRDS ARE HIT");
+            //location.replace("EndScreen.html"); //Verlinkung zum Endscreen
+            showGameOverScreen();
         }
     }
 
@@ -144,5 +175,23 @@ namespace L11 {
         let nearsize: number = 100;
         let getDifference: Vector = Vector.getDifference(_hotspot, new Vector(throwBirdfood.position.x, throwBirdfood.stand));
         return (nearsize >= getDifference.length);
+    }
+
+
+    //https://eia-eleonora.herokuapp.com/ -> Adresse meiner App
+    export function showGameOverScreen(): void {
+        document.getElementById("game").style.display = "none";
+        document.getElementById("endscreen").style.display = "initial";
+        node = <HTMLDivElement>document.getElementsByClassName("yourScore")[0];
+        scoreToHTML();
+    }
+
+    function scoreToHTML(): void {
+        if (!wroteScore) {
+            let content: string = "";
+            content = "Your score: " + score;
+            node.innerHTML += content;
+            wroteScore = true;
+        }
     }
 }
