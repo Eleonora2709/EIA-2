@@ -177,7 +177,7 @@ var L11;
             let query = "command=retrieve";
             let response = yield fetch(L11.url + "?" + query);
             let responseText = yield response.text();
-            //let finalresponse: any[] = JSON.parse(responseText);
+            let entries = JSON.parse(responseText);
             alert(responseText);
             let scores = document.querySelector("span#showScores");
             scores.innerText = responseText;

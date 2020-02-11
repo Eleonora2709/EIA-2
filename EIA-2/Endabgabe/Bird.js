@@ -142,7 +142,7 @@ var L11;
         }
         //this.task = TASK.FLY;
         isHit(_hotspot) {
-            let hitsize = 20 * this.size;
+            let hitsize = 30 * this.size;
             let difference = new L11.Vector(_hotspot.x - this.position.x, _hotspot.y - this.position.y);
             return (Math.abs(difference.x) < hitsize && Math.abs(difference.y) < hitsize); //Entfernung vertikale
         }
